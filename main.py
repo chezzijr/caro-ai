@@ -2,13 +2,12 @@ from caro import Caro, Cell, Result
 from minimax import MinimaxAgent
 
 if __name__ == '__main__':
-    caro = Caro(size=8, size_to_win=5)
-    smart_agent = MinimaxAgent(caro, Cell.X, depth=3)
-    dumb_agent = MinimaxAgent(caro, Cell.O)
-    # mc_agent = MonteCarloAgent(caro, Cell.O, max_iter=1000)
+    caro = Caro(size=6, size_to_win=4)
+    smart_agent = MinimaxAgent(caro, Cell.O, depth=3)
+    dumb_agent = MinimaxAgent(caro, Cell.X)
     while True:
         print(caro)
-        print("=" * 9)
+        print("=" * (2 * caro.size - 1))
         if caro.turn == smart_agent.cell:
             row, col = smart_agent.generate_optimal_move()
         else:
