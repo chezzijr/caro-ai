@@ -83,11 +83,14 @@ class MinimaxAgent:
     def minimax(self, depth: int, alpha: int, beta: int, is_maximizer: bool) -> tuple[int, tuple[int, int] | None]:
         result = self.game.check_win()
         if result != Result.PENDING:
-            return {
-                Result.X_WIN: (INF, None),
-                Result.O_WIN: (-INF, None),
-                Result.DRAW: (0, None)
-            }[result]
+            if self.cell == Cell.X and result == Result.X_WIN:
+                return INF, None
+            elif self.cell == Cell.O and result == Result.O_WIN:
+                return INF, None
+            elif result == Result.DRAW:
+                return -INF // 2, None
+            else:
+                return -INF, None
 
         if depth == 0:
             return self.evaluate(), None

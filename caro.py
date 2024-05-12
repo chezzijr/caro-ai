@@ -148,5 +148,9 @@ class Caro:
             end += 1
         return index - (start + 1), end - 1 - index
 
+    def random_free_cell(self) -> tuple[int, int]:
+        free_cells = np.argwhere(self.board == Cell.EMPTY)
+        return tuple(free_cells[np.random.choice(len(free_cells))])
+
     def __str__(self):
         return '\n'.join(' '.join(('_', 'X', 'O')[cell] for cell in row) for row in self.board)
