@@ -25,6 +25,7 @@ class Caro:
         self.turn = first_to_move
         self.status = Result.PENDING
         self.remaining_free_cells = size * size
+        self.history = []
 
     def clone(self) -> Caro:
         clone = Caro(self.size, self.size_to_win)
@@ -39,6 +40,7 @@ class Caro:
             raise ValueError("Invalid move")
 
         self.board[row, col] = self.turn
+        self.history.append((row, col))
         self.remaining_free_cells -= 1
 
         if self.check_win_at(row, col):
