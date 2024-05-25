@@ -109,7 +109,7 @@ class MinimaxAgent:
                     best = val
                     best_move = (row, col)
 
-                self.game.unmmove(row, col)
+                self.game.unmove(row, col)
                 alpha = max(alpha, best)
                 if beta <= alpha:
                     break
@@ -124,7 +124,7 @@ class MinimaxAgent:
                     best = val
                     best_move = (row, col)
 
-                self.game.unmmove(row, col)
+                self.game.unmove(row, col)
                 beta = min(beta, best)
                 if beta <= alpha:
                     break

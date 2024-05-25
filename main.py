@@ -2,9 +2,9 @@ from caro import Caro, Cell, Result
 from minimax import MinimaxAgent
 
 if __name__ == '__main__':
-    caro = Caro(size=6, size_to_win=4)
-    smart_agent = MinimaxAgent(caro, Cell.O, depth=3)
-    dumb_agent = MinimaxAgent(caro, Cell.X)
+    caro = Caro(size=9, size_to_win=5)
+    smart_agent = MinimaxAgent(caro, Cell.X, depth=1)
+    dumb_agent = MinimaxAgent(caro, Cell.O)
     while True:
         print(caro)
         print("=" * (2 * caro.size - 1))
