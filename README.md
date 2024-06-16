@@ -1,2 +1,2 @@
 # Caro AI
-Caro AI implementation using search algorithm only
+Caro AI implementation
